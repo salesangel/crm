@@ -18,11 +18,66 @@ Route::get('{client_name}.saleangel.com', [
 ]);
 
 
-
-Route::get('clients', [
-	'uses' 	=> 'ClientController@index',
+Route::post('user/create', [
+	'uses' 	=> 'UserController@create',
 	'as' 	=> '/',
 ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('object', [
+	'uses' 	=> 'ObjectController@index',
+	'as' 	=> '/',
+]);
+
+
+Route::post('object/create', [
+	'uses' 	=> 'ObjectController@create',
+	'as' 	=> '/',
+]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route::group(['prefix' => 'lead'], function () {
 
