@@ -17,8 +17,6 @@ Route::get('{client_name}.saleangel.com', [
 	'as' 	=> '/',
 ]);
 
-google.saleangel.com
-
 
 
 Route::get('clients', [
@@ -26,29 +24,29 @@ Route::get('clients', [
 	'as' 	=> '/',
 ]);
 
-Route::group(['prefix' => 'client'], function () {
+// Route::group(['prefix' => 'lead'], function () {
 
-	Route::post('create', [
-		'uses' => 'ClientController@create',
-		'as' => 'client.create',
-	]);
-});
-
-
+// 	Route::post('create', [
+// 		'uses' => 'ClientController@create',
+// 		'as' => 'client.create',
+// 	]);
+// });
 
 
-Route::get('licenses', [
-	'uses' 	=> 'LicenseController@index',
-	'as' 	=> '/',
-]);
 
-Route::group(['prefix' => 'license'], function () {
 
-	Route::post('create', [
-		'uses' => 'LicenseController@create',
-		'as' => 'license.create',
-	]);
-});
+// Route::get('licenses', [
+// 	'uses' 	=> 'LicenseController@index',
+// 	'as' 	=> '/',
+// ]);
+
+// Route::group(['prefix' => 'license'], function () {
+
+// 	Route::post('create', [
+// 		'uses' => 'LicenseController@create',
+// 		'as' => 'license.create',
+// 	]);
+// });
 
 
 
