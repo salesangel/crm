@@ -17,8 +17,7 @@ Route::get('{client_name}.saleangel.com', [
 	'as' 	=> '/',
 ]);
 
-
-
+google.saleangel.com
 
 
 
