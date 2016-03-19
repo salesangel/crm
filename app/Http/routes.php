@@ -17,7 +17,6 @@ Route::get('{client_name}.saleangel.com', [
 	'as' 	=> '/',
 ]);
 
-
 Route::post('user/create', [
 	'uses' 	=> 'UserController@create',
 	'as' 	=> '/',

@@ -23,10 +23,9 @@ class UserController extends Controller
 			"password" 	=> bcrypt($data['password']),
 		];
 
-		//return $create;
 		User::create($create);
 
-		return "user created";
+		return User::all();
 	}
 
 }
