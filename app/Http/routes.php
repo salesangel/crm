@@ -46,10 +46,25 @@ Route::get('object', [
 ]);
 
 
-Route::post('object/create', [
-	'uses' 	=> 'ObjectController@create',
-	'as' 	=> '/',
-]);
+
+Route::group(['prefix' => 'user'], function () {
+
+	Route::post('create', [
+		'uses' 	=> 'UserController@create',
+		'as' 	=> '/',
+	]);
+
+});
+
+Route::group(['prefix' => 'object'], function () {
+
+	Route::post('create', [
+		'uses' 	=> 'ObjectController@create',
+		'as' 	=> '/',
+	]);
+
+});
+
 
 
 

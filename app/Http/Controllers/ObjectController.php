@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Model\Object;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ObjectController extends Controller
@@ -18,6 +18,16 @@ class ObjectController extends Controller
 
 	public function create(Request $request)
 	{
-		return $request->all();
+		$data =  $request->all();
+
+		$object = [
+			"orgid" 	=> $data['orgid'],
+			"objname" 	=> $data['objname'],
+		];
+
+		Object::create($object);
+
+		return Object::all();
+
 	}
 }

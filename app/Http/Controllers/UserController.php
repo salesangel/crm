@@ -24,7 +24,6 @@ class UserController extends Controller
 		];
 
 		User::create($create);
-
 		return User::all();
 	}
 

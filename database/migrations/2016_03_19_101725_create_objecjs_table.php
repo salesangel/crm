@@ -14,9 +14,13 @@ class CreateObjecjsTable extends Migration
 	{
 		Schema::create('objects', function (Blueprint $table) {
 			$table->increments('objid');
-			$table->string('orgid');
+			$table->integer('orgid')->unsigned();
 			$table->string('objname');
 			$table->timestamps();
+
+			$table->foreign('orgid')
+				->references('id')
+				->on('users');
 		});
 	}
 
