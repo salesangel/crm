@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateObjecjsTable extends Migration
+class CreateObjectsTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -14,13 +14,13 @@ class CreateObjecjsTable extends Migration
 	{
 		Schema::create('objects', function (Blueprint $table) {
 			$table->increments('objid');
-			$table->integer('orgid')->unsigned();
-			$table->string('objname');
+			$table->integer('org_id')->unsigned();
+			$table->string('obj_name');
 			$table->timestamps();
 
-			$table->foreign('orgid')
-				->references('id')
-				->on('users');
+			$table->foreign('org_id')
+				->references('orgid')
+				->on('orgs');
 		});
 	}
 

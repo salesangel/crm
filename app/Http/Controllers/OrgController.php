@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 
-use App\Model\User;
+use App\Model\Org;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class OrgController extends Controller
 {
    
+
+   	public function index()
+   	{
+   		return Org::with('objects')->get();
+   	}
 
 	public function create(Request $request)
 	{
@@ -19,12 +24,12 @@ class UserController extends Controller
 		$create = [
 			"email" 	=> $data['email'],
 			"address" 	=> $data['address'],
-			"orgname" 	=> $data['company_name'],
+			"org_name" 	=> $data['company_name'],
 			"password" 	=> bcrypt($data['password']),
 		];
 
-		User::create($create);
-		return User::all();
+		Org::create($create);
+		return Org::all();
 	}
 
 }

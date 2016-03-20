@@ -13,11 +13,19 @@ class CreateDatasTable extends Migration
 	public function up()
 	{
 		Schema::create('datas', function (Blueprint $table) {
-			$table->increments('id');
-			$table->integer('guid');
-			$table->integer('orgid');
-			$table->integer('objid');
+			$table->increments('guid');
+			$table->integer('org_id')->unsigned();
+			$table->integer('object_id')->unsigned();
 			$table->string('name');
+
+			$table->foreign('org_id')
+				->references('orgid')
+				->on('orgs');
+
+			$table->foreign('object_id')
+				->references('objid')
+				->on('objects');
+
 			$table->timestamps();
 		});
 	}

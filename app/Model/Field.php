@@ -4,14 +4,12 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Object extends Model
+class Field extends Model
 {
-
-	  protected $primaryKey = 'objid';
 
 	protected $fillable = [
 		'org_id', 
-		'obj_name',
+		'objname',
 	];
 
 	public function org()
@@ -19,8 +17,8 @@ class Object extends Model
 		return $this->belongsTo('App\Model\Org');
 	}
 
-	public function field()
+	public function objects()
 	{
-		return $this->hasMany('App\Model\Field');
+		return $this->belongsTo('App\Model\Object');
 	}
 }

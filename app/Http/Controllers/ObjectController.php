@@ -12,7 +12,7 @@ class ObjectController extends Controller
 	
 	public function index()
 	{
-		return 3;
+		return Object::with('field')->get();
 	}
 
 
@@ -21,8 +21,8 @@ class ObjectController extends Controller
 		$data =  $request->all();
 
 		$object = [
-			"orgid" 	=> $data['orgid'],
-			"objname" 	=> $data['objname'],
+			"org_id" 	=> $data['orgid'],
+			"obj_name" 	=> $data['objname'],
 		];
 
 		Object::create($object);

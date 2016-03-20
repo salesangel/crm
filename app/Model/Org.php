@@ -8,7 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class Org extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
 	use Authenticatable, CanResetPassword;
 
@@ -17,7 +17,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'orgs';
+
+	protected $primaryKey = 'orgid';
 
 	/**
 	 * The attributes that are mass assignable.
@@ -27,7 +29,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $fillable = [
 		'email', 
 		'address',
-		'orgname', 
+		'org_name', 
 		'password',
 	];
 
@@ -37,4 +39,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+
+	public function objects()
+	{
+		return $this->hasMany('App\Model\Object');
+	}
+
 }
